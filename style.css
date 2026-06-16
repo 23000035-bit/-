@@ -1,0 +1,208 @@
+/* ==========================================================================
+   SHOWAGAKUIN SCIENCE ACADEMY - FUTURISTIC STYLE SHEET (FULLY ADJUSTABLE)
+   【CodePenの CSS 欄にこのファイルの中身をすべて貼り付けてください】
+   ========================================================================== */
+
+:root {
+  /* --- 🎨 カラーシステム --- */
+  --neon-cyan: #00f0ff;
+  --neon-green: #39ff14;
+  --neon-purple: #bd00ff;
+  --bg-dark: #47196E;           /* 昭和学院の伝統と先進性を表す深紫色 */
+  --panel-bg: rgba(15, 23, 42, 0.7);
+
+  /* ==========================================================================
+     【⚙️ 文字サイズ調整エリア】
+     ここの数値を変更するだけで、サイト全体の文字サイズを一気に変更できます！
+     ※「rem」はサイズ単位です（1rem = 約16px）。「px」での直接指定も可能です。
+     ========================================================================== */
+  --size-main-title: 6.5rem;      /* ヒーローエリアのメインタイトル（例：8rem にするとさらに巨大化） */
+  --size-section-title: 3.5rem;   /* セクションの大見出し（理念、3つの領域など） */
+  --size-card-title: 2.2rem;      /* カードやボックスの中の見出し */
+  --size-body: 1.6rem;            /* 通常の本文・説明テキスト */
+  --size-sub-text: 1.3rem;        /* 補足文、タグ、小さい注記など */
+  --size-nav: 1.4rem;             /* ヘッダーのナビゲーションやボタンの文字 */
+}
+
+/* ==========================================================================
+   🎯 フォントサイズ制御クラス（HTML側の custom-... クラスと連動）
+   ========================================================================== */
+.custom-main-title {
+  font-size: var(--size-main-title) !important;
+  line-height: 1.15 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.custom-section-title {
+  font-size: var(--size-section-title) !important;
+  line-height: 1.25 !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.custom-card-title {
+  font-size: var(--size-card-title) !important;
+  line-height: 1.35 !important;
+  font-weight: 800 !important;
+}
+
+.custom-body-text {
+  font-size: var(--size-body) !important;
+  line-height: 1.8 !important;
+  font-weight: 500 !important;
+}
+
+.custom-sub-text {
+  font-size: var(--size-sub-text) !important;
+  line-height: 1.7 !important;
+  font-weight: 500 !important;
+}
+
+.custom-nav-text {
+  font-size: var(--size-nav) !important;
+  font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   📱 モバイル（スマホ）用レスポンシブ文字サイズ
+   画面幅が小さいデバイスで文字がはみ出さないように、自動で縮小する割合を定義しています。
+   ========================================================================== */
+@media (max-width: 640px) {
+  :root {
+    --size-main-title: 1rem;    /* スマホ表示用のメインタイトル */
+    --size-section-title: 2.2rem; /* スマホ表示用の見出し */
+    --size-card-title: 1.6rem;    /* スマホ表示用のカードタイトル */
+    --size-body: 1.1rem;          /* スマホ表示用の本文 */
+    --size-sub-text: 1.1rem;      /* スマホ表示用の補足文字 */
+    --size-nav: 1.1rem;           /* スマホ表示用のナビゲーション */
+  }
+}
+
+/* ==========================================================================
+   🌌 基本レイアウトと装飾スタイル
+   ========================================================================== */
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: var(--bg-dark);
+  color: #f8fafc;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.font-orbitron {
+  font-family: 'Orbitron', sans-serif;
+}
+
+/* ネオンライト（発光）エフェクト */
+.glow-cyan {
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.4);
+}
+
+.glow-green {
+  text-shadow: 0 0 15px rgba(57, 255, 20, 0.8), 0 0 30px rgba(57, 255, 20, 0.4);
+}
+
+/* 🧪 タイトル下の区切り線（<hr>）の未来風サイエンスデザイン */
+hr {
+  border: none !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent) !important;
+  box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan);
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  width: 50% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  opacity: 0.8;
+}
+
+/* 💎 グラスモルフィズム（背景が透けてブレンドされる先進的なカード） */
+.glass-card {
+  background: var(--panel-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 240, 255, 0.4);
+  box-shadow: 0 20px 50px 0 rgba(0, 240, 255, 0.25);
+}
+
+/* 🎨 背景Canvasとサイエンスグリッド */
+#science-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: 
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* 🖥️ スクロールバーのデザイン */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-cyan);
+}
+
+/* 🎛️ シミュレーターのスライダーつまみ */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #1e293b;
+  height: 8px;
+  border-radius: 4px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--neon-cyan);
+  box-shadow: 0 0 12px var(--neon-cyan);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/* 🌀 ふわふわとしたネオンの拍動アニメーション */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.3; }
+}
+.pulse-glow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}

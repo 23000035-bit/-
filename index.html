@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>SAコース紹介Webページ（情報　壱）　</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <!-- 
+  【CodePenの HTML 欄にこのファイルの中身をすべて貼り付けてください】
+-->
+
+<!-- Tailwind CSS、Font Awesome（アイコン）、Google Fonts のインポート -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+JP:wght@300;500;700;900&display=swap" rel="stylesheet">
+
+<!-- 近未来グリッド背景とCanvas描画エリア -->
+<div class="grid-overlay"></div>
+<canvas id="science-canvas"></canvas>
+
+<!-- ナビゲーションヘッダー -->
+<header class="sticky top-0 z-50 w-full glass-card border-b border-white/10 px-6 py-4">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+    <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cyan-500 to-purple-600 flex items-center justify-center text-white font-orbitron font-extrabold text-xl shadow-lg shadow-cyan-500/20">
+        SA
+      </div>
+      <div>
+        <span class="text-cyan-400 font-orbitron tracking-widest block font-bold custom-sub-text">SHOWAGAKUIN S.A.C.</span>
+        <h1 class="text-white tracking-wider custom-nav-text">昭和学院サイエンスアカデミー</h1>
+      </div>
+    </div>
+    
+    <nav class="flex items-center space-x-1 md:space-x-6 custom-nav-text">
+      <a href="#vision" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">コース理念</a>
+      <a href="#fields" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">3つの研究領域</a>
+      <a href="#lab" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">シミュレーター</a>
+      <a href="#features" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">学習の特長</a>
+      <a href="#join" class="px-4 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 rounded-full border border-cyan-500/30 transition-all font-semibold">
+        未来へアクセス
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-16 space-y-36">
+
+  <!-- ヒーローセクション -->
+  <section class="min-h-[80vh] flex flex-col justify-center items-center text-center relative py-8">
+    <div class="absolute w-72 h-72 bg-cyan-500/10 rounded-full blur-[120px] top-10 left-10 pointer-events-none"></div>
+    <div class="absolute w-72 h-72 bg-purple-500/10 rounded-full blur-[120px] bottom-10 right-10 pointer-events-none"></div>
+
+    <div class="glass-card p-8 md:p-16 rounded-3xl max-w-4xl border border-white/10 relative overflow-hidden">
+      <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-cyan-400 via-purple-500 to-green-400"></div>
+      
+      <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cyan-500/10 text-cyan-400 font-bold mb-8 border border-cyan-500/20 uppercase tracking-widest font-orbitron custom-sub-text">
+        <i class="fa-solid fa-atom animate-spin" style="animation-duration: 8s;"></i>
+        <span>ADVANCED SCIENCE ACADEMY COURSE</span>
+      </div>
+
+      <!-- メインタイトル -->
+      <h2 class="font-black tracking-tight mb-8 custom-main-title">
+        知的好奇心を、<br class="sm:hidden">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400 glow-cyan">未来の科学技術</span>に変える。
+      </h2>
+      
+      <!-- 説明本文 -->
+      <p class="text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light custom-body-text">
+        昭和学院の「サイエンスアカデミーコース（SA）」は、最先端の理数教育とICT、そして豊かな探究心を融合させたコース。
+        観察し、問い、実験を重ねることで、未踏の明日を切り拓く先駆者を育てます。
+      </p>
+
+      <!-- ===================================================
+           【画像挿入エリア】
+           ※src="..." の中のURLを好きな画像リンクへ書き換えて自由に変更できます。
+           =================================================== -->
+      <div class="my-8 max-w-2xl mx-auto rounded-2xl overflow-hidden border border-cyan-500/30 shadow-lg shadow-cyan-500/10">
+        <img src="https://gahag.net/img/201601/16s/gahag-0046679657-2.jpg" 
+             alt="昭和学院サイエンスアカデミー イメージ" 
+             class="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-500"
+             onerror="this.onerror=null; this.src='https://placehold.co/800x450/0f172a/00f0ff?text=SCIENCE+ACADEMY';">
+      </div>
+      <!-- =================================================== -->
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 custom-sub-text font-bold">
+        <a href="#lab" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-400 hover:to-purple-500 text-white rounded-xl shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center space-x-2">
+          <i class="fa-solid fa-microscope"></i>
+          <span>バーチャルラボを起動する</span>
+        </a>
+        <a href="#fields" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 transition-all flex items-center justify-center space-x-2">
+          <span>コースについて知る</span>
+          <i class="fa-solid fa-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- スクロールダウン表示 -->
+    <div class="mt-16 text-gray-500 animate-bounce">
+      <p class="font-orbitron tracking-widest mb-1 custom-sub-text">SYSTEM ONLINE / SCROLL</p>
+      <i class="fa-solid fa-angle-down text-cyan-400"></i>
+    </div>
+  </section>
+
+  <!-- コース理念 -->
+  <section id="vision" class="scroll-mt-24 space-y-12">
+    <div class="text-center max-w-2xl mx-auto space-y-4">
+      <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Course Vision</span>
+      <h3 class="font-black custom-section-title">科学を愛し、真理を究める。</h3>
+      <hr>
+      <p class="text-gray-400 custom-body-text">昭和学院SAコースが目指すのは、単なる暗記型学習ではなく、実社会の課題に科学的アプローチで挑み解決する「知的クリエイティビティ」です。</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="glass-card p-8 rounded-2xl border border-white/5">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-6">
+          <i class="fa-solid fa-network-wired text-xl"></i>
+        </div>
+        <h4 class="font-bold mb-4 custom-card-title">最先端理数プログラムの融合</h4>
+        <p class="text-gray-400 leading-relaxed custom-sub-text">
+          物理・化学・生物・地学の垣根を取り払い、統合的なサイエンスとして理解を深める独自カリキュラムを構築。最新科学を取り入れながら数理的思考を根底から鍛えます。
+        </p>
+      </div>
+
+      <div class="glass-card p-8 rounded-2xl border border-white/5">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 mb-6">
+          <i class="fa-solid fa-lightbulb text-xl"></i>
+        </div>
+        <h4 class="font-bold mb-4 custom-card-title">自律的な「プロジェクト型」研究</h4>
+        <p class="text-gray-400 leading-relaxed custom-sub-text">
+          自ら課題を設定し、仮説を立て、実験で検証し、論文にまとめるプロセスを繰り返します。学術学会やコンテストへの発表を目的とした本質的な学びです。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3つの研究領域 -->
+  <section id="fields" class="scroll-mt-24 space-y-12">
+    <div class="text-center max-w-2xl mx-auto space-y-4">
+      <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Core Fields</span>
+      <h3 class="font-black custom-section-title">3つの探究サイエンス領域</h3>
+      <hr>
+      <p class="text-gray-400 custom-body-text">生徒たちの興味を呼び覚まし、進化させる、理科分野を中心とした3つの教育プログラム。</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- 生命科学 (シロイヌナズナ) -->
+      <div class="glass-card p-8 rounded-2xl border border-emerald-500/20 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-orbitron text-emerald-400 font-bold uppercase custom-sub-text">Biology / Ecology</span>
+            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-seedling"></i>
+            </div>
+          </div>
+          <h4 class="font-bold mb-4 text-emerald-300 custom-card-title">ゲノム生命科学研究</h4>
+          <p class="text-gray-400 leading-relaxed mb-6 custom-sub-text">
+            植物学・分子生物学における世界的なモデル生物「シロイヌナズナ」を題材に、遺伝子発現や環境応答を本格探究。DNA抽出や電気泳動技術など、大学レベルのバイオテクノロジー技術を体得します。
+          </p>
+        </div>
+        <div class="border-t border-emerald-500/10 pt-4 mt-4">
+          <span class="text-emerald-400 block font-bold mb-1 custom-sub-text">■ 主なテーマ</span>
+          <p class="text-gray-300 custom-sub-text">遺伝子配列解析 / 植物生理活性物質抽出 / 植物環境応答シミュレート</p>
+        </div>
+      </div>
+
+      <!-- 物質化学 (フラスコ) -->
+      <div class="glass-card p-8 rounded-2xl border border-cyan-500/20 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-orbitron text-cyan-400 font-bold uppercase custom-sub-text">Material Chemistry</span>
+            <div class="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+              <i class="fa-solid fa-vial-virus"></i>
+            </div>
+          </div>
+          <h4 class="font-bold mb-4 text-cyan-300 custom-card-title">分子マテリアル創成化学</h4>
+          <p class="text-gray-400 leading-relaxed mb-6 custom-sub-text">
+            三角フラスコ内での有機合成から、先端新素材開発の基礎までを研究。物質の組成や分子構造のコントロールが織りなす「美」と「エネルギー」を探り、持続可能なグリーンケミストリーの可能性に触れます。
+          </p>
+        </div>
+        <div class="border-t border-cyan-500/10 pt-4 mt-4">
+          <span class="text-cyan-400 block font-bold mb-1 custom-sub-text">■ 主なテーマ</span>
+          <p class="text-gray-300 custom-sub-text">有機・無機機能物質合成 / スペクトル分光分析 / 水素燃料電池の触媒効率向上</p>
+        </div>
+      </div>
+
+      <!-- 環境物理工学 (風力タービン) -->
+      <div class="glass-card p-8 rounded-2xl border border-purple-500/20 flex flex-col justify-between">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="font-orbitron text-purple-400 font-bold uppercase custom-sub-text">Physics & Engineering</span>
+            <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+          </div>
+          <h4 class="font-bold mb-4 text-purple-300 custom-card-title">クリーン環境物理工学</h4>
+          <p class="text-gray-400 leading-relaxed mb-6 custom-sub-text">
+            風力発電の風車の翼設計における流体力学や、次世代太陽光発電システムの効率テストなど、実世界スケールの物理課題をエンジニアリングアプローチで攻略。3Dプリンターや数理解析シミュレーターを駆使します。
+          </p>
+        </div>
+        <div class="border-t border-purple-500/10 pt-4 mt-4">
+          <span class="text-purple-400 block font-bold mb-1 custom-sub-text">■ 主なテーマ</span>
+          <p class="text-gray-300 custom-sub-text">風車ブレードの空力最適化設計 / 自律駆動ロボット制御 / 太陽光波長追尾発電</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- バーチャルラボ・シミュレーター -->
+  <section id="lab" class="scroll-mt-24 space-y-12">
+    <div class="text-center max-w-2xl mx-auto space-y-4">
+      <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Interactive Simulator</span>
+      <h3 class="font-black custom-section-title">SAバーチャルラボ</h3>
+      <hr>
+      <p class="text-gray-400 custom-body-text">生物（シロイヌナズナ）、化学（フラスコ）、物理（風力風車）の探究シミュレータ。値を調整してサイエンスの変化を体験してください。</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- 設定・調整パネル -->
+      <div class="lg:col-span-5 glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-between">
+        <div class="space-y-6">
+          <div class="flex items-center space-x-2 border-b border-white/10 pb-4">
+            <i class="fa-solid fa-sliders text-cyan-400"></i>
+            <h4 class="font-bold text-white custom-sub-text">研究パラメータ制御</h4>
+          </div>
+
+          <!-- ラボタイプ切り替え -->
+          <div class="grid grid-cols-3 gap-2 custom-sub-text">
+            <button onclick="changeLab('bio')" id="tab-bio" class="py-2 px-1 rounded-lg font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 transition-all flex flex-col items-center justify-center gap-1">
+              <i class="fa-solid fa-seedling text-base"></i>
+              <span>生物 (ナズナ)</span>
+            </button>
+            <button onclick="changeLab('chem')" id="tab-chem" class="py-2 px-1 rounded-lg font-bold bg-white/5 text-gray-400 border border-transparent transition-all flex flex-col items-center justify-center gap-1">
+              <i class="fa-solid fa-flask text-base"></i>
+              <span>化学 (フラスコ)</span>
+            </button>
+            <button onclick="changeLab('phys')" id="tab-phys" class="py-2 px-1 rounded-lg font-bold bg-white/5 text-gray-400 border border-transparent transition-all flex flex-col items-center justify-center gap-1">
+              <i class="fa-solid fa-fan text-base"></i>
+              <span>物理 (風車)</span>
+            </button>
+          </div>
+
+          <!-- 動的コントロール（生物） -->
+          <div id="ctrl-bio" class="space-y-4">
+            <div>
+              <div class="flex justify-between text-emerald-300 mb-1 custom-sub-text">
+                <span>光量子束密度 (μmol/m²/s)</span>
+                <span id="txt-light" class="font-orbitron font-bold">150</span>
+              </div>
+              <input type="range" id="val-light" min="0" max="400" value="150" class="w-full accent-emerald-400" oninput="runSim()">
+            </div>
+            <div>
+              <div class="flex justify-between text-emerald-300 mb-1 custom-sub-text">
+                <span>水分量 (H₂O供給量 %)</span>
+                <span id="txt-water" class="font-orbitron font-bold">50</span>
+              </div>
+              <input type="range" id="val-water" min="0" max="100" value="50" class="w-full accent-emerald-400" oninput="runSim()">
+            </div>
+          </div>
+
+          <!-- 動的コントロール（化学） -->
+          <div id="ctrl-chem" class="space-y-4 hidden">
+            <div>
+              <div class="flex justify-between text-cyan-300 mb-1 custom-sub-text">
+                <span>反応温度 (°C)</span>
+                <span id="txt-temp" class="font-orbitron font-bold">25</span>
+              </div>
+              <input type="range" id="val-temp" min="0" max="120" value="25" class="w-full accent-cyan-400" oninput="runSim()">
+            </div>
+            <div>
+              <div class="flex justify-between text-cyan-300 mb-1 custom-sub-text">
+                <span>触媒添加量 (Catalyst mol)</span>
+                <span id="txt-cat" class="font-orbitron font-bold">1.0</span>
+              </div>
+              <input type="range" id="val-cat" min="0" max="5" step="0.1" value="1" class="w-full accent-cyan-400" oninput="runSim()">
+            </div>
+          </div>
+
+          <!-- 動的コントロール（物理） -->
+          <div id="ctrl-phys" class="space-y-4 hidden">
+            <div>
+              <div class="flex justify-between text-purple-300 mb-1 custom-sub-text">
+                <span>流入風速 (Wind Speed m/s)</span>
+                <span id="txt-wind" class="font-orbitron font-bold">5.0</span>
+              </div>
+              <input type="range" id="val-wind" min="0" max="25" step="0.5" value="5" class="w-full accent-purple-400" oninput="runSim()">
+            </div>
+            <div>
+              <div class="flex justify-between text-purple-300 mb-1 custom-sub-text">
+                <span>ブレードピッチ角 (°)</span>
+                <span id="txt-pitch" class="font-orbitron font-bold">15</span>
+              </div>
+              <input type="range" id="val-pitch" min="0" max="45" value="15" class="w-full accent-purple-400" oninput="runSim()">
+            </div>
+          </div>
+        </div>
+
+        <!-- 解析出力 -->
+        <div class="bg-black/40 p-4 rounded-xl border border-white/5 space-y-2 mt-6">
+          <div class="flex items-center space-x-1 text-gray-500 font-orbitron font-bold tracking-widest custom-sub-text">
+            <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+            <span>SIMULATED RE-RUNNING OUT</span>
+          </div>
+          <div class="flex justify-between items-center">
+            <span class="text-gray-400 custom-sub-text" id="label-out">成長率:</span>
+            <span class="font-bold font-orbitron custom-card-title text-emerald-400" id="val-out">---</span>
+          </div>
+          <p class="text-gray-400 leading-relaxed min-h-[48px] custom-sub-text" id="desc-out">
+            計算を実行中...
+          </p>
+        </div>
+      </div>
+
+      <!-- リアルタイムビジュアライザ -->
+      <div class="lg:col-span-7 glass-card p-6 rounded-2xl border border-white/10 flex flex-col justify-center items-center min-h-[360px] relative overflow-hidden bg-slate-950/40">
+        
+        <!-- 生物グラフィックス（シロイヌナズナ） -->
+        <div id="vis-bio" class="flex flex-col items-center justify-center space-y-4 w-full">
+          <div class="relative w-48 h-48 flex items-end justify-center">
+            <div class="absolute bottom-0 w-32 h-2.5 bg-neutral-900 rounded-full"></div>
+            <svg id="svg-arabidopsis" viewBox="0 0 120 120" class="w-32 h-32 transition-all duration-500">
+              <!-- 茎 -->
+              <path id="stem-line" d="M 60,110 Q 60,70 60,40" stroke="#16a34a" stroke-width="4.5" fill="none" />
+              <!-- 葉 -->
+              <path d="M 60,95 Q 40,85 45,75 Q 55,75 60,95" fill="#15803d" />
+              <path d="M 60,95 Q 80,85 75,75 Q 65,75 60,95" fill="#15803d" />
+              <path d="M 60,75 Q 35,65 42,52 Q 52,58 60,75" fill="#16a34a" />
+              <path d="M 60,75 Q 85,65 78,52 Q 68,58 60,75" fill="#16a34a" />
+              <!-- 4弁の白い小花（シロイヌナズナ特有） -->
+              <g id="flower-group">
+                <ellipse cx="60" cy="30" rx="4" ry="8" fill="white" />
+                <ellipse cx="60" cy="46" rx="4" ry="8" fill="white" />
+                <ellipse cx="52" cy="38" rx="8" ry="4" fill="white" />
+                <ellipse cx="68" cy="38" rx="8" ry="4" fill="white" />
+                <circle cx="60" cy="38" r="3.5" fill="#fbbf24" />
+              </g>
+            </svg>
+          </div>
+          <p class="font-bold text-emerald-400 font-orbitron uppercase tracking-widest text-center custom-sub-text">Arabidopsis physiological state</p>
+        </div>
+
+        <!-- 化学グラフィックス（フラスコ） -->
+        <div id="vis-chem" class="hidden flex flex-col items-center justify-center space-y-4 w-full">
+          <div class="relative w-48 h-48 flex items-center justify-center">
+            <svg viewBox="0 0 100 100" class="w-32 h-32">
+              <!-- コニカルフラスコ外形 -->
+              <path d="M 40,15 L 60,15 L 60,35 L 85,85 A 8,8 0 0,1 77,93 L 23,93 A 8,8 0 0,1 15,85 L 40,35 Z" fill="none" stroke="#00f0ff" stroke-width="3" />
+              <!-- 液体溶液 -->
+              <path id="sol-fluid" d="M 20,83 L 80,83 A 4,4 0 0,1 77,93 L 23,93 A 4,4 0 0,1 20,83 Z" fill="rgba(6,182,212,0.45)" class="transition-all duration-500" />
+              <!-- 泡 -->
+              <g id="bubbles">
+                <circle cx="35" cy="75" r="2.5" fill="white" opacity="0.8" />
+                <circle cx="50" cy="65" r="3.5" fill="white" opacity="0.6" />
+                <circle cx="65" cy="78" r="1.5" fill="white" opacity="0.9" />
+              </g>
+            </svg>
+          </div>
+          <p class="font-bold text-cyan-400 font-orbitron uppercase tracking-widest text-center custom-sub-text">Molecular chemical synthesis</p>
+        </div>
+
+        <!-- 物理グラフィックス（風車） -->
+        <div id="vis-phys" class="hidden flex flex-col items-center justify-center space-y-4 w-full">
+          <div class="relative w-48 h-48 flex items-end justify-center">
+            <!-- 支持基盤（タワー） -->
+            <div class="absolute bottom-0 w-2.5 h-32 bg-slate-700 rounded-t-full"></div>
+            <!-- ハブ＆ブレード -->
+            <div id="turbine-rotor" class="absolute bottom-28 w-36 h-36 flex items-center justify-center transition-all ease-linear" style="transform: rotate(0deg);">
+              <div class="w-5 h-5 rounded-full bg-slate-300 border-2 border-white z-10 shadow-lg"></div>
+              <!-- 3枚ブレード -->
+              <div class="absolute w-2 h-16 bg-gradient-to-t from-slate-400 to-white rounded-full origin-bottom" style="bottom: 50%; transform: rotate(0deg);"></div>
+              <div class="absolute w-2 h-16 bg-gradient-to-t from-slate-400 to-white rounded-full origin-bottom" style="bottom: 50%; transform: rotate(120deg);"></div>
+              <div class="absolute w-2 h-16 bg-gradient-to-t from-slate-400 to-white rounded-full origin-bottom" style="bottom: 50%; transform: rotate(240deg);"></div>
+            </div>
+          </div>
+          <p class="font-bold text-purple-400 font-orbitron uppercase tracking-widest text-center custom-sub-text">Turbine generator rotation</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SAコース学習の特長 -->
+  <section id="features" class="scroll-mt-24 space-y-12">
+    <div class="text-center max-w-2xl mx-auto space-y-4">
+      <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Course Advantages</span>
+      <h3 class="font-black custom-section-title">SAを創り出す先端の教育システム</h3>
+      <hr>
+      <p class="text-gray-400 custom-body-text">高校・大学、社会の連携を通じて未来の科学者を育成する多層的な支援構造です。</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+        <div class="text-cyan-400 text-2xl"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h4 class="font-bold custom-card-title">高大接続プロジェクト</h4>
+        <p class="text-gray-400 leading-relaxed custom-sub-text">
+          有名理系国公立大学や研究機関の講師陣から直接の講義や研究支援を受けることで、大学レベルの研究プロセスに高校時からシームレスにアクセス。
+        </p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+        <div class="text-purple-400 text-2xl"><i class="fa-solid fa-server"></i></div>
+        <h4 class="font-bold custom-card-title">1人1台の先端ICTツール</h4>
+        <p class="text-gray-400 leading-relaxed custom-sub-text">
+          最先端タブレットPCや数値計算ソフトを使い、自律的データ解析を実行。情報のデータサイエンスやプログラミングを基礎から体系的に修得します。
+        </p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+        <div class="text-green-400 text-2xl"><i class="fa-solid fa-earth-asia"></i></div>
+        <h4 class="font-bold custom-card-title">グローバル論文コンクール</h4>
+        <p class="text-gray-400 leading-relaxed custom-sub-text">
+          英語論文執筆の指導から、海外での科学フェア、フォーラム等への選抜代表派遣。自分の研究成果を世界の研究者に英語で発信できる国際的プレゼン力を育成。
+        </p>
+      </div>
+
+      <div class="glass-card p-6 rounded-2xl border border-white/5 space-y-4">
+        <div class="text-amber-400 text-2xl"><i class="fa-solid fa-cubes-stacked"></i></div>
+        <h4 class="font-bold custom-card-title">FAB研究スタジオ完備</h4>
+        <p class="text-gray-400 leading-relaxed custom-sub-text">
+          3Dプリンターや高精度マイクロスコープを常設する専用工作室「FAB STUDIO」を活用。物理工作、植物解剖、新素材合成をプロ品質で行うことが可能。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 入学情報 -->
+  <section id="join" class="scroll-mt-24 max-w-4xl mx-auto">
+    <div class="glass-card p-8 md:p-16 rounded-3xl border border-cyan-500/30 text-center relative overflow-hidden">
+      <div class="absolute -left-12 -bottom-12 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <h3 class="font-black mb-6 custom-section-title">サイエンスの未来にダイブする。</h3>
+      <p class="text-gray-300 max-w-xl mx-auto leading-relaxed mb-10 custom-body-text">
+        昭和学院サイエンスアカデミーコースは、自ら新しい解を見つけ出したい生徒の意欲を全力でプロデュースします。体験授業や学校見学会のお申し込みはこちら。
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center gap-4 custom-sub-text font-bold">
+        <a href="#" class="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 rounded-xl shadow-lg shadow-cyan-500/20 transition-all">
+          学校説明会＆ワークショップに申し込む
+        </a>
+        <a href="#" class="px-8 py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl border border-white/10 transition-all">
+          デジタルパンフレット請求
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- フッター -->
+<footer class="glass-card border-t border-white/10 mt-32 py-12 text-gray-400 text-center relative z-10 custom-sub-text">
+  <div class="max-w-7xl mx-auto px-6 space-y-4">
+    <p class="font-orbitron font-bold text-cyan-400 tracking-widest">SHOWAGAKUIN JUNIOR & SENIOR HIGH SCHOOL</p>
+    <p class="text-gray-500">〒272-0823 千葉県市川市東菅野2-17-1</p>
+    <p class="text-gray-600">&copy; 2026 昭和学院中学校・高等学校 サイエンスアカデミーコース. All Rights Reserved.</p>
+  </div>
+</footer>
+    <script  src="./script.js"></script>
+
+  </body>
+  
+</html>
