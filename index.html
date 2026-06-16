@@ -11,6 +11,7 @@
   <body>
   <!-- 
   【CodePenの HTML 欄にこのファイルの中身をすべて貼り付けてください】
+  ※CSSとJSは、それぞれのCodePenの入力欄（CSS欄、JS欄）に分けて貼り付けてください。
 -->
 
 <!-- Tailwind CSS、Font Awesome（アイコン）、Google Fonts のインポート -->
@@ -39,7 +40,7 @@
       <a href="#vision" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">コース理念</a>
       <a href="#fields" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">3つの研究領域</a>
       <a href="#lab" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">シミュレーター</a>
-      <a href="#features" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">学習の特長</a>
+      <a href="#features" class="px-3 py-1.5 text-gray-300 hover:text-cyan-400 transition-colors">学習 of 特長</a>
       <a href="#join" class="px-4 py-1.5 bg-cyan-500/20 hover:bg-cyan-500/40 text-cyan-300 rounded-full border border-cyan-500/30 transition-all font-semibold">
         未来へアクセス
       </a>
@@ -62,10 +63,9 @@
         <span>ADVANCED SCIENCE ACADEMY COURSE</span>
       </div>
 
-      <!-- メインタイトル -->
-      <h2 class="font-black tracking-tight mb-8 custom-main-title">
-        知的好奇心を、<br class="sm:hidden">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400 glow-cyan">未来の科学技術</span>に変える。
+      <!-- メインタイトル：手動の改行をすべて撤廃し、ブラウザの自動折り返し（text-balance）に任せました -->
+      <h2 class="font-black tracking-tight mb-8 custom-main-title text-balance">
+        知的好奇心を、<span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400 glow-cyan">未来の科学技術</span>に変える。
       </h2>
       
       <!-- 説明本文 -->
@@ -109,7 +109,10 @@
   <section id="vision" class="scroll-mt-24 space-y-12">
     <div class="text-center max-w-2xl mx-auto space-y-4">
       <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Course Vision</span>
-      <h3 class="font-black custom-section-title">科学を愛し、真理を究める。</h3>
+      <!-- タイトルをシンプルなプレーンテキスト＋自動バランス折り返しに変更 -->
+      <h3 class="font-black custom-section-title text-balance">
+        科学を愛し、真理を究める。
+      </h3>
       <hr>
       <p class="text-gray-400 custom-body-text">昭和学院SAコースが目指すのは、単なる暗記型学習ではなく、実社会の課題に科学的アプローチで挑み解決する「知的クリエイティビティ」です。</p>
     </div>
@@ -141,7 +144,10 @@
   <section id="fields" class="scroll-mt-24 space-y-12">
     <div class="text-center max-w-2xl mx-auto space-y-4">
       <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Core Fields</span>
-      <h3 class="font-black custom-section-title">3つの探究サイエンス領域</h3>
+      <!-- タイトルをシンプルなプレーンテキスト＋自動バランス折り返しに変更 -->
+      <h3 class="font-black custom-section-title text-balance">
+        3つの探究サイエンス領域
+      </h3>
       <hr>
       <p class="text-gray-400 custom-body-text">生徒たちの興味を呼び覚まし、進化させる、理科分野を中心とした3つの教育プログラム。</p>
     </div>
@@ -183,7 +189,7 @@
         </div>
         <div class="border-t border-cyan-500/10 pt-4 mt-4">
           <span class="text-cyan-400 block font-bold mb-1 custom-sub-text">■ 主なテーマ</span>
-          <p class="text-gray-300 custom-sub-text">有機・無機機能物質合成 / スペクトル分光分析 / 水素燃料電池の触媒効率向上</p>
+          <p class="text-gray-300 custom-sub-text">有機・無機機能物質合成 / スペクトル分光分析 / 水素燃料電池 of 触媒効率向上</p>
         </div>
       </div>
 
@@ -213,7 +219,10 @@
   <section id="lab" class="scroll-mt-24 space-y-12">
     <div class="text-center max-w-2xl mx-auto space-y-4">
       <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Interactive Simulator</span>
-      <h3 class="font-black custom-section-title">SAバーチャルラボ</h3>
+      <!-- タイトルをシンプルなプレーンテキスト＋自動バランス折り返しに変更 -->
+      <h3 class="font-black custom-section-title text-balance">
+        SAバーチャルラボ
+      </h3>
       <hr>
       <p class="text-gray-400 custom-body-text">生物（シロイヌナズナ）、化学（フラスコ）、物理（風力風車）の探究シミュレータ。値を調整してサイエンスの変化を体験してください。</p>
     </div>
@@ -386,7 +395,10 @@
   <section id="features" class="scroll-mt-24 space-y-12">
     <div class="text-center max-w-2xl mx-auto space-y-4">
       <span class="font-orbitron text-cyan-400 tracking-widest font-bold uppercase block custom-sub-text">Course Advantages</span>
-      <h3 class="font-black custom-section-title">SAを創り出す先端の教育システム</h3>
+      <!-- タイトルをシンプルなプレーンテキスト＋自動バランス折り返しに変更 -->
+      <h3 class="font-black custom-section-title text-balance">
+        SAを創り出す先端の教育システム
+      </h3>
       <hr>
       <p class="text-gray-400 custom-body-text">高校・大学、社会の連携を通じて未来の科学者を育成する多層的な支援構造です。</p>
     </div>
@@ -431,7 +443,10 @@
     <div class="glass-card p-8 md:p-16 rounded-3xl border border-cyan-500/30 text-center relative overflow-hidden">
       <div class="absolute -left-12 -bottom-12 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl pointer-events-none"></div>
       
-      <h3 class="font-black mb-6 custom-section-title">サイエンスの未来にダイブする。</h3>
+      <!-- タイトルをシンプルなプレーンテキスト＋自動バランス折り返しに変更 -->
+      <h3 class="font-black mb-6 custom-section-title text-balance">
+        サイエンスの未来にダイブする。
+      </h3>
       <p class="text-gray-300 max-w-xl mx-auto leading-relaxed mb-10 custom-body-text">
         昭和学院サイエンスアカデミーコースは、自ら新しい解を見つけ出したい生徒の意欲を全力でプロデュースします。体験授業や学校見学会のお申し込みはこちら。
       </p>
