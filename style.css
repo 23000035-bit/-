@@ -36,11 +36,12 @@
 }
 
 .custom-section-title {
-  font-size: var(--size-section-title) !important;
+  /* clampを使用し、画面幅（vw）に応じてサイズを自動縮小させ、1行に美しく収めます */
+  font-size: clamp(1.1rem, 5.3vw, var(--size-section-title)) !important;
   line-height: 1.3 !important;
   font-weight: 900 !important;
   letter-spacing: -0.01em !important;
-  white-space: nowrap !important;  /* ★絶対に途中で改行させず、1行に強制します */
+  white-space: nowrap !important;  /* ★デバイスを問わず、絶対に途中で改行させず1行に強制します */
 }
 
 .custom-card-title {
@@ -80,9 +81,9 @@
     --size-nav: 0.8rem;
   }
   
+  /* スマホでの自動改行許可を廃止し、1行表示を完全に徹底させました */
   .custom-section-title {
-    white-space: normal !important; /* スマホのみ極小サイズで自動折り返しを許可 */
-    word-break: keep-all !important;
+    white-space: nowrap !important;
   }
 }
 
